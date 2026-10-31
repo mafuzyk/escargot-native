@@ -21,8 +21,6 @@ chmod 755 "$BIN_DIR/escargot-native"
 strip --strip-unneeded target/debug/escargot-webview -o "$BIN_DIR/escargot-webview"
 chmod 755 "$BIN_DIR/escargot-webview"
 ln -sf escargot-native "$BIN_DIR/msn"
-cp msn2 "$BIN_DIR/msn2"
-chmod 755 "$BIN_DIR/msn2"
 
 rm -rf "$DATA_DIR/assets/img" "$DATA_DIR/assets/emoticons" "$DATA_DIR/assets/sounds" "$DATA_DIR/assets/wallpapers" "$DATA_DIR/assets/games"
 cp -r assets/img assets/emoticons assets/sounds assets/wallpapers assets/games "$DATA_DIR/assets/"
@@ -51,22 +49,6 @@ X-GNOME-UsesNotifications=true
 EOF
 chmod 644 "$APP_DIR/escargot-native.desktop"
 
-cat > "$APP_DIR/escargot-native-secondary.desktop" <<EOF
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=MSN Messenger - Account 2
-GenericName=Instant Messenger
-Comment=Open a separate Escargot account with its own settings and history
-Exec=$BIN_DIR/msn2
-Icon=$ICON_DIR/escargot-native.png
-Terminal=false
-Categories=Network;InstantMessaging;
-Keywords=msn;messenger;escargot;second;account;
-StartupNotify=true
-StartupWMClass=escargot-native-login
-EOF
-chmod 644 "$APP_DIR/escargot-native-secondary.desktop"
 
 
 command -v update-desktop-database >/dev/null 2>&1 \

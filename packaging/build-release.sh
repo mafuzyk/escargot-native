@@ -20,9 +20,7 @@ strip --strip-unneeded target/release/escargot-webview -o "$out/escargot-webview
 chmod 755 "$out/escargot-native" "$out/escargot-webview"
 ln -s escargot-native "$out/msn"
 
-install -m755 packaging/release/msn2 "$out/msn2"
 install -m644 packaging/release/escargot-native.desktop "$out/escargot-native.desktop"
-install -m644 packaging/release/escargot-native-secondary.desktop "$out/escargot-native-secondary.desktop"
 
 cp -r assets/img assets/emoticons assets/sounds assets/wallpapers assets/games "$out/assets/"
 find "$out/assets" -name '*.md' -delete

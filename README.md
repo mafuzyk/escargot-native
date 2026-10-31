@@ -55,9 +55,8 @@ cd escargot-native
 msn
 ```
 
-The installer builds the client and the WebKit browser helper, then puts `msn`,
-`msn2` and the assets under `~/.local`. `msn2` starts a second profile with its
-own settings and history. To run from the source tree without installing:
+The installer builds the client and the WebKit browser helper, then puts `msn` and the assets under `~/.local`. To run from the source tree
+without installing:
 
 ```sh
 ./run.sh

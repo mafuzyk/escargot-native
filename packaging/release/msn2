@@ -1,9 +1,0 @@
-#!/bin/sh
-set -eu
-
-profile_root="${XDG_DATA_HOME:-$HOME/.local/share}/escargot-native-secondary"
-export ESCARGOT_NATIVE_ASSETS="${ESCARGOT_NATIVE_ASSETS:-/usr/share/escargot-native}"
-export XDG_CONFIG_HOME="$profile_root/config"
-export XDG_DATA_HOME="$profile_root/data"
-
-exec /usr/bin/escargot-native "$@"
