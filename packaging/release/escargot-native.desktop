@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=MSN Messenger
+GenericName=Instant Messenger
+Comment=Native MSN Messenger 7.5 for the Escargot network
+Exec=/usr/bin/escargot-native
+Icon=escargot-native
+Terminal=false
+Categories=Network;InstantMessaging;
+Keywords=msn;messenger;escargot;chat;linux;
+StartupNotify=true
+StartupWMClass=escargot-native-login
+X-GNOME-UsesNotifications=true

@@ -12,9 +12,15 @@ pub fn asset_path(relative: &str) -> PathBuf {
     if let Ok(root) = std::env::var("ESCARGOT_NATIVE_ASSETS") {
         roots.push(PathBuf::from(root));
     }
+    if let Ok(exe) = std::env::current_exe() {
+        if let Some(parent) = exe.parent() {
+            roots.push(parent.to_path_buf());
+        }
+    }
     if let Some(data) = dirs::data_dir() {
         roots.push(data.join("escargot-native"));
     }
+    roots.push(PathBuf::from("/usr/share/escargot-native"));
     roots.push(PathBuf::from(env!("CARGO_MANIFEST_DIR")));
 
     for root in &roots {
