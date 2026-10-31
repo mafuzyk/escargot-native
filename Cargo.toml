@@ -1,0 +1,43 @@
+[package]
+name = "escargot-native"
+version = "0.1.0"
+edition = "2024"
+description = "Native Linux port of MSN Messenger 7.5 for the Escargot network"
+license = "CC-BY-NC-4.0"
+default-run = "escargot-native"
+
+[dependencies]
+gpui = "0.2.2"
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+dirs = "6"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+urlencoding = "2"
+unicode-segmentation = "1"
+ureq = { version = "2", features = ["tls"] }
+quick-xml = "0.37"
+log = "0.4"
+env_logger = "0.11"
+gtk = "0.18"
+webkit2gtk = "2.0"
+
+[patch.crates-io]
+# xattr 0.2.3 references libc::ENOATTR, which current libc no longer exposes on
+# Linux. The only change is mapping a missing attribute to ENODATA on Linux.
+xattr = { path = "vendor/xattr" }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 2
+
+# The app crate is relinked often during UI work; dropping its debug info keeps
+# the 30 MB binary from turning every link into a 500 MB disk write. Dependency
+# debug info is unchanged, so only this package is rebuilt.
+[profile.dev.package.escargot-native]
+debug = 0

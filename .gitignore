@@ -1,0 +1,6 @@
+/target
+/backup
+/screenshots
+*.log
+__pycache__/
+*.pyc
