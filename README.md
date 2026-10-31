@@ -62,6 +62,13 @@ without installing:
 ./run.sh
 ```
 
+### Prebuilt packages
+
+The [releases page](https://github.com/mafuzyk/escargot-native/releases) has an
+x86_64 tarball, an AppImage and a Debian package. The Debian package targets
+Ubuntu 24.04 or newer. The AppImage needs FUSE 2; without it, run it with
+`--appimage-extract-and-run`.
+
 ## Status
 
 The client speaks MSNP11. Text conversations, presence, contact requests,
