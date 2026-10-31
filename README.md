@@ -28,8 +28,8 @@ The screenshots use the built-in demo profile.
 ## Install
 
 Create an Escargot account at <https://escargot.chat/>. You need Linux with
-Wayland or X11, Rust 1.85 or newer, GTK 3 and WebKitGTK 4.1 development headers,
-and a working Vulkan driver. On Arch Linux:
+Wayland or X11, GTK 3, WebKitGTK 4.1 and a working Vulkan driver. Building from
+source also needs Rust 1.85 or newer. On Arch Linux:
 
 ```sh
 sudo pacman -S rust gtk3 webkit2gtk-4.1 libxkbcommon vulkan-icd-loader
@@ -37,6 +37,16 @@ sudo pacman -S rust gtk3 webkit2gtk-4.1 libxkbcommon vulkan-icd-loader
 
 `secret-tool` (libsecret) enables the remember-password option, and `pw-play`
 (PipeWire) plays the sounds. The client runs without both.
+
+### AUR
+
+On Arch Linux, install the binary package from the AUR:
+
+```sh
+yay -S escargot-native-bin
+```
+
+### From source
 
 ```sh
 git clone https://github.com/mafuzyk/escargot-native.git
